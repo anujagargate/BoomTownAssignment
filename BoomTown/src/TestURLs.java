@@ -17,11 +17,11 @@ public class TestURLs {
 		HttpURLConnection connectionForBT = (HttpURLConnection) getAPIResponse.openConnection();
 		connectionForBT.setRequestMethod("GET");
 	
-		   //Parse the JSON object to get key-value pairs.
+		   
 		
 		String returnedResult = "";
 		Scanner sc = new Scanner(getAPIResponse.openStream());           //Open connection and get input stream
-		while(sc.hasNext())												 //Get the JSON object in returnedResult
+		while(sc.hasNext())												 
 		{
 			returnedResult += sc.next();			
 		}
@@ -36,8 +36,8 @@ public class TestURLs {
 		
 		String returnedResult = parseandReturnString("https://api.github.com/orgs/BoomTownROI");
 		
-		JSONParser parser = new JSONParser();
-		JSONObject jObj = (JSONObject) parser.parse(returnedResult); 
+		JSONParser parser = new JSONParser();												//Parse the JSON object to get key-value pairs.
+		JSONObject jObj = (JSONObject) parser.parse(returnedResult); 					
 
 		
 		@SuppressWarnings("unchecked")
@@ -109,7 +109,7 @@ public class TestURLs {
 		HttpURLConnection connectionForBT1 = (HttpURLConnection) getAPIResponse1.openConnection();
 		connectionForBT1.setRequestMethod("GET");
 		
-		String returnedResult1 = "";
+		String returnedResult1="";
 		Scanner sc1 = new Scanner(getAPIResponse1.openStream());
 		while(sc1.hasNext())
 		{
@@ -119,13 +119,13 @@ public class TestURLs {
 	
 		
 		JSONParser parser1 = new JSONParser();
-		org.json.simple.JSONArray jArray =  (org.json.simple.JSONArray) parser1.parse(returnedResult1);
+		org.json.simple.JSONArray jArray = (org.json.simple.JSONArray) parser1.parse(returnedResult1);
 		
-		System.out.println("Array Length returned by repos_url : "+jArray.toArray().length);
+		System.out.println("Array Length returned by repos_url : "+ jArray.toArray().length);
 		if ( repoCount == jArray.toArray().length)
 			System.out.println("Counts returned by repos_url and public_repos are Equal----------------:" );
 		
-		
+	
 
 	}
 	
